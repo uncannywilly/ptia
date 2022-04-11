@@ -11,7 +11,7 @@ public class EnemyType4 : ObjectController
     // EnemyType4 is a boss enemy and will modify scale tremendously
     void Start()
     {
-        ScaleModifier = 2.25f;  
+        ScaleModifier = 2.25f;   // ENCAPSULATION
         speed = 20f;
     }
 
@@ -24,10 +24,10 @@ public class EnemyType4 : ObjectController
 
     }
     
-    public override void StartMoving() // can override virtual methods from parent class
+    public override void StartMoving() // POLYMORPHISM
     {
-        var bossEnemyScale = BossEnemyScale;
-        bossEnemyScale.x =  Mathf.PingPong(Time.time*10, 45);
+        var bossEnemyScale = BossEnemyScale; // ENCAPSULATION
+        bossEnemyScale.x =  Mathf.PingPong(Time.time*10, 45); // ENCAPSULATION
         gameObject.transform.localScale = new Vector3(bossEnemyScale.x, 1, 1);
         gameObject.transform.Translate(Vector3.down * speed * Time.deltaTime);
     }

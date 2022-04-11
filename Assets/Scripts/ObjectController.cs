@@ -10,10 +10,10 @@ public class ObjectController : MonoBehaviour
     public float scale = 10;
     public float speed = 5;
     private float scaleModifier;
-    private float bossEnemyScaleModifier = 5;
+    
     private Vector3 bossEnemyScale;
 
-    public float ScaleModifier
+    public float ScaleModifier // ENCAPSULATION
     {
         get
         {
@@ -24,7 +24,7 @@ public class ObjectController : MonoBehaviour
             scaleModifier = value;
         }
     }
-    public Vector3 BossEnemyScale
+    public Vector3 BossEnemyScale // ENCAPSULATION
     {
         get
         {
@@ -55,7 +55,7 @@ public class ObjectController : MonoBehaviour
         }
     }
 
-    public virtual void StartMoving()
+    public virtual void StartMoving() // POLYMORPHISM
     {
         gameObject.transform.Translate(Vector3.down * speed * Time.deltaTime);
     }

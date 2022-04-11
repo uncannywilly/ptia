@@ -60,7 +60,7 @@ public class EnemySpawner : MonoBehaviour
         
     }
   
-    private int RandomNumber(int range, bool absolute)
+    private int RandomNumber(int range, bool absolute) // ABSTRACTION
     {
         if(absolute){
             return Random.Range(0, range);
