@@ -154,7 +154,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scale: 10
   speed: 5
-  scaleModifier: 0
   gameManager: {fileID: 413452607}
 --- !u!4 &83474417
 Transform:
@@ -797,7 +796,7 @@ MonoBehaviour:
   - {fileID: 8461955777447652650, guid: 79ab5671cb890f542928a3ffb36771cb, type: 3}
   - {fileID: 6199396917661040817, guid: a2e8f839b901fc14589d07a61d9a686f, type: 3}
   wall: {fileID: 288187996117996867, guid: b18dab52588c7d849a42580de10a28c4, type: 3}
-  customWall: []
+  bossEnemy: {fileID: 4182902825713946200, guid: a5e664af2f611d847833e3eefb0c9091, type: 3}
 --- !u!4 &1427255861
 Transform:
   m_ObjectHideFlags: 0

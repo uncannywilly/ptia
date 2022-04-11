@@ -12,13 +12,15 @@ public class EnemySpawner : MonoBehaviour
 
     [SerializeField] private GameObject wall;
 
-    [SerializeField] private GameObject[] customWall;
+    
+    [SerializeField] private GameObject bossEnemy;
 
     // Start is called before the first frame update
     void Start()
     {
        InvokeRepeating("InstantiateEnemy",0.5f,3);
        InvokeRepeating("InstantiateWall",1f,6);
+       InvokeRepeating("InstantiateBossEnemy",10f,10);
     }
 
     private void InstantiateWall()
@@ -47,10 +49,16 @@ public class EnemySpawner : MonoBehaviour
     private void InstantiateEnemy()
     {
         for(int i=0; i<=Random.Range(4, 7); i++){
-            Instantiate(enemy[RandomNumber(enemy.Length,true)], new Vector3(RandomNumber(rangeX, false), 32, 0), transform.rotation);
+            Instantiate(enemy[RandomNumber(enemy.Length,true)], new Vector3(RandomNumber(rangeX, false), 32, 0), transform.rotation); 
         }
     }
     
+    private void InstantiateBossEnemy()
+    {
+        
+            Instantiate(bossEnemy, new Vector3(0, 32, 0), transform.rotation); 
+        
+    }
   
     private int RandomNumber(int range, bool absolute)
     {

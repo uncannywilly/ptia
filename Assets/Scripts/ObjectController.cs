@@ -10,6 +10,8 @@ public class ObjectController : MonoBehaviour
     public float scale = 10;
     public float speed = 5;
     private float scaleModifier;
+    private float bossEnemyScaleModifier = 5;
+    private Vector3 bossEnemyScale;
 
     public float ScaleModifier
     {
@@ -22,7 +24,20 @@ public class ObjectController : MonoBehaviour
             scaleModifier = value;
         }
     }
-   
+    public Vector3 BossEnemyScale
+    {
+        get
+        {
+            return bossEnemyScale;
+             
+        }
+        set
+        { 
+            bossEnemyScale = value;
+        }
+    }
+
+
     public GameObject gameManager;
     void Start()
     {
@@ -33,16 +48,20 @@ public class ObjectController : MonoBehaviour
     void Update()
     {
         StartMoving();
+       
         if (gameObject.transform.position.y <= -30)
         {
             Destroy(gameObject);
         }
     }
 
-    public void StartMoving()
+    public virtual void StartMoving()
     {
         gameObject.transform.Translate(Vector3.down * speed * Time.deltaTime);
     }
+   
+
+  
 
     public void OnTriggerEnter(Collider other)
     {
@@ -62,9 +81,9 @@ public class ObjectController : MonoBehaviour
              other.gameObject.transform.localScale = new Vector3(other.gameObject.transform.localScale.x+scaleModifier, 1, 1);
          }
         }
-        if(gameObject.CompareTag("Wall") && !other.CompareTag("Enemy"))
+        if(gameObject.CompareTag("Wall") && !other.CompareTag("Enemy") && !other.CompareTag("Wall"))
         {
-           
+            //Debug.Log("game over bc of " + gameObject.name + "and" + other.gameObject.name + "collision");
             gameManager = GameObject.Find("GameManager");
             gameManager.GetComponent<GameManager>().gameOver = true;
         }
